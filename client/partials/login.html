@@ -1,0 +1,58 @@
+<div>
+  <h4>Registraion</h4>
+  <form ng-model = "registration" name="registerForm" ng-submit="userRegister()">
+
+                                       <!-- First Name Validation -->
+    <p>First Name: <input type="text" name="first_name" ng-model='registration.first_name' ng-minlength='3' required></p>
+    <div ng-if="registerForm.first_name.$error.required" ng-show='registerForm.first_name.$touched' class="error">
+      You forgot to enter your First Name...
+    </div>
+    <div ng-if="registerForm.first_name.$error.minlength" ng-show='registerForm.first_name.$touched' class="error">
+        Your First Name is short...
+    </div>
+
+                                    <!-- Last Name Validation -->
+    <p>Last Name: <input type="text" name="last_name" ng-model='registration.last_name' ng-minlength='3' required></p>
+    <div ng-if="registerForm.last_name.$error.required" ng-show='registerForm.last_name.$touched' class="error">
+      You forgot to enter your Last Name...
+    </div>
+    <div ng-if="registerForm.last_name.$error.minlength" ng-show='registerForm.last_name.$touched' class="error">
+      Your Last Name is short...
+    </div>
+
+                                    <!-- EMail Validation -->
+    <p>Email: <input type="text" name="email" ng-model='registration.email' required></p>
+    <div ng-if="registerForm.email.$error.required" ng-show='registerForm.email.$touched' class="error">
+      Email is required.....
+    </div>
+
+                                      <!-- Password Validation -->
+    <p>Password: <input type="text" name="password" ng-model='registration.password' ng-minlength='3' required></p>
+    <div ng-if="registerForm.password.$error.required" ng-show='registerForm.password.$touched' class="error">
+      You forgot to enter your Password...
+    </div>
+    <div ng-if="registerForm.password.$error.minlength" ng-show='registerForm.password.$touched' class="error">
+        Your Password Strength is weak...
+    </div>
+
+                                      <!-- Password Validation -->
+    <p>Confirm Password: <input type="text" ng-model='registration.confirm_password'></p>
+
+                                      <!-- Birthday Validation -->
+    <p>Birthday: <input type="date" ng-model='registration.birthday' name='birthday' required></p>
+    <div ng-if="registerForm.birthday.$error.required" ng-show='registerForm.birthday.$touched' class="error">
+        Your Birthday Field is required...
+    </div>
+
+    <input type="submit" value="register">
+     {{register_message}}
+  </form>
+
+  <h4>Login</h4>
+  <form ng-model = "login" ng-submit = "userLogin()">
+    <p>Email: <input type="text" ng-model='login.email'></p>
+    <p>Password: <input type="text" ng-model='login.password'></p>
+    <input type="submit" value="login">
+    {{login_message}}
+  </form>
+</div>
